@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "/src/styles/ApiRickAndMorty.css";
 import { RickCard } from "./RickCard";
+import { EpisodesCard } from "./EpisodesCard";
 
 export const ApiRickAndMorty = () => {
   const [show, setShow] = useState("");
@@ -13,7 +14,10 @@ export const ApiRickAndMorty = () => {
             <img src="https://th.bing.com/th/id/OIP.oxOeJLfQdgpEJJ38IXFZEQHaEK?rs=1&pid=ImgDetMain" className="card-img-top" />
             <div className="card-body">
               <a onClick={()=>setShow("personajes")} className="btn btn-primary">
-                PERSONAJES
+                VER PERSONAJES
+              </a>
+              <a onClick={()=>setShow("")} className="btn btn-primary">
+                CREAR PERSONAJE
               </a>
             </div>
           </div>
@@ -24,14 +28,17 @@ export const ApiRickAndMorty = () => {
               className="card-img-top"
             />
             <div className="card-body">
-              <a onClick={()=>setShow("especies")} className="btn btn-primary">
-                ESPECIES
+              <a onClick={()=>setShow("episodios")} className="btn btn-primary">
+                VER EPISODIOS
+              </a>
+              <a onClick={()=>setShow("")} className="btn btn-primary">
+                CREAR EPISODIO
               </a>
             </div>
           </div>
         </div>
       </div>
-      {show === "personajes" ? <RickCard /> : show === "especies" ? "especies" : ""}
+      {show === "personajes" ? <RickCard /> : show === "episodios" ? <EpisodesCard/> : ""}
     </>
   );
 };

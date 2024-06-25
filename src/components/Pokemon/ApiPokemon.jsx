@@ -17,7 +17,10 @@ export const ApiPokemon = () => {
             />
             <div className="card-body">
               <a onClick={() => setShow("pokemon")} className="btn btn-primary">
-                POKEMON
+                VER POKEMON
+              </a>
+              <a onClick={() => setShow("habilidades")} className="btn btn-primary">
+                CREAR POKEMON
               </a>
             </div>
           </div>
@@ -26,7 +29,10 @@ export const ApiPokemon = () => {
             <img src="https://th.bing.com/th/id/OIP.Sk-7C2x2XN-rT00NcGZi8gHaEK?rs=1&pid=ImgDetMain" className="card-img-top" />
             <div className="card-body">
               <a onClick={() => setShow("habilidades")} className="btn btn-primary">
-                HABILIDADES
+                VER HABILIDADES
+              </a>
+              <a onClick={() => setShow("habilidades")} className="btn btn-primary">
+                CREAR HABILIDAD
               </a>
             </div>
           </div>

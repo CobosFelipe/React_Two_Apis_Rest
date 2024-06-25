@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "/src/styles/ApiRickAndMorty.css";
 
-export const RickCard = () => {
+export const EpisodesCard = () => {
   const [rick, setPoke] = useState([]);
 
   useEffect(() => {
-    async function fetchRick() {
+    async function fetchEpisodes() {
       try {
-        const response = await fetch("http://localhost:5000/rym/get");
+        const response = await fetch("http://localhost:5000/epi/get");
         const data = await response.json();
         const rick = data.obj;
         console.log(rick);
@@ -17,18 +17,16 @@ export const RickCard = () => {
       }
     }
 
-    fetchRick();
+    fetchEpisodes();
   }, []);
 
   return (
     <div className="rick-container">
       {rick.map((p, index) => (
         <div key={index} className="rick-card">
-          <p>Id: {p.id_character}</p>
-          <p>Nombre: {p.name_character}</p>
-          <p>Estado: {p.status ? 'Vivo' : 'Muerto'}</p>
-          <p>Genero: {p.gender}</p>
-          <p>Especie: {p.species}</p>
+          <p>Id: {p.id_episode}</p>
+          <p>Nombre: {p.name_episode}</p>
+          <p>Episodio: {p.episode}</p>
         </div>
       ))}
     </div>

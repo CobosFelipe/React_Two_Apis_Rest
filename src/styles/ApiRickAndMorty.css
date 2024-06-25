@@ -1,5 +1,5 @@
 .container{
-  padding: 2rem;
+  padding: 1rem 2rem;
 }
 .categories{
   display: flex;
@@ -10,6 +10,37 @@
   min-width: 10rem;
   max-width: 20rem;
 }
+.card .btn{
+  font-size: .8rem;
+}
 .card img{
   width: 100%;
+}
+.card-body{
+  justify-content: center;
+  display: flex;
+  gap: .5rem;
+}
+.rick-container{
+  padding: 1rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  justify-content: center;
+  gap: .5rem;
+}
+.rick-card{
+  min-width: 10rem;
+  min-height: 5rem;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(128, 128, 128, 0.2);
+  padding: .5rem;
+  border-radius: .5rem;
+  justify-content: center;
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+}
+
+.rick-card p{
+  margin: 0;
 }
