@@ -13,3 +13,14 @@
 .card img{
   width: 100%;
 }
+.poke-container{
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.poke-card{
+  min-width: 10rem;
+  display: flex;
+  flex-direction: column;
+}

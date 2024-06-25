@@ -1,5 +1,5 @@
 import React from "react";
-import { ApiRickAndMorty } from "./ApiRickAndMorty";
+import { ApiRickAndMorty } from "./RickAndMorty/ApiRickAndMorty";
 import '/src/styles/nav.css'
 
 export const NavBar = ({ onChange }) => {
