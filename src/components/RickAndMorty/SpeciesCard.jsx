@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "/src/styles/ApiPokemon.css";
 
-export const RickCard = () => {
+export const SpeciesCard = () => {
   const [rick, setPoke] = useState([]);
 
   useEffect(() => {
-    async function fetchRick() {
+    async function fetchSpecies() {
       try {
-        const response = await fetch("http://localhost:5000/rym/get");
+        const response = await fetch("http://localhost:5000/ryc/get");
         const data = await response.json();
         const rick = data.obj;
         console.log(rick);
@@ -17,7 +17,7 @@ export const RickCard = () => {
       }
     }
 
-    fetchRick();
+    fetchSpecies();
   }, []);
 
   return (
@@ -26,9 +26,9 @@ export const RickCard = () => {
         <div key={index} className="poke-card">
           <p>Id: {p.id_character}</p>
           <p>Nombre: {p.name_character}</p>
-          <p>Estado: {p.status ? 'Vivo' : 'Muerto'}</p>
-          <p>Genero: {p.gender}</p>
-          <p>Especie: {p.species}</p>
+          <p>{p.status}</p>
+          <p>{p.gender}</p>
+          <p>{p.species}</p>
         </div>
       ))}
     </div>
