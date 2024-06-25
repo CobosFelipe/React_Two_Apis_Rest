@@ -1,0 +1,25 @@
+nav{
+  height: 60px!important;
+}
+
+li{
+  list-style: none;
+  font-weight: bold;
+}
+
+.arrow_left, .arrow_right{
+  margin: 0 20px;
+  transition: transform 0.5s ease;
+}
+
+.arrow_left:hover{
+  transform: translateX(-10px);
+}
+
+.arrow_right:hover{
+  transform: translateX(10px);
+}
+
+a{
+  margin: 0!important;
+}
