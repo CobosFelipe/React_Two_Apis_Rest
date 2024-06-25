@@ -10,6 +10,7 @@ export const PokemonCard = () => {
         const response = await fetch("http://localhost:5000/pok/get");
         const data = await response.json();
         const pokemon = data.obj;
+        setPoke(pokemon)
         console.log(pokemon);
       } catch (error) {
         console.error('Error buscando Pokemon:', error);
@@ -25,8 +26,8 @@ export const PokemonCard = () => {
         <div key={index} className="poke-card">
           <p>Id: {p.id_pokemon}</p>
           <p>Nombre: {p.pokemon_name}</p>
-          <p>{p.height}</p>
-          <p>{p.weight}</p>
+          <p>Altura: {p.height}m</p>
+          <p>Peso: {p.weight}Kg</p>
         </div>
       ))}
     </div>

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import "/src/styles/ApiPokemon.css";
 
 export const AbilitiesCard = () => {
   const [poke, setPoke] = useState([]);
@@ -6,12 +7,13 @@ export const AbilitiesCard = () => {
   useEffect(() => {
     async function fetchPokemonAbilities() {
       try {
-        const response = await fetch("http://localhost:5000/pok/get");
+        const response = await fetch("http://localhost:5000/abi/get");
         const data = await response.json();
         const pokemon = data.obj;
+        setPoke(pokemon)
         console.log(pokemon);
       } catch (error) {
-        console.error('Error buscando Pokemon:', error);
+        console.error('Error buscando Abilities:', error);
       }
     }
 
@@ -22,10 +24,8 @@ export const AbilitiesCard = () => {
     <div className="poke-container">
       {poke.map((p, index) => (
         <div key={index} className="poke-card">
-          <p>Id: {p.id_pokemon}</p>
-          <p>Nombre: {p.pokemon_name}</p>
-          <p>{p.height}</p>
-          <p>{p.weight}</p>
+          <p>Id: {p.id_ability}</p>
+          <p>Nombre: {p.name}</p>
         </div>
       ))}
     </div>
