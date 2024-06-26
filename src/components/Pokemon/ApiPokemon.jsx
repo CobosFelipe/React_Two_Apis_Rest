@@ -3,6 +3,7 @@ import "/src/styles/ApiPokemon.css";
 import { PokemonCard } from "./PokemonCard";
 import { AbilitiesCard } from "./AbilitiesCard";
 import { CrearPokemon } from "./CrearPokemon";
+import { CrearHabilidad } from "./CrearHabilidad";
 
 export const ApiPokemon = () => {
   const [show, setShow] = useState("");
@@ -53,7 +54,7 @@ export const ApiPokemon = () => {
       case "habilidades":
         return <AbilitiesCard />;
       case "crear_habilidad":
-        return "habilidad";
+        return <CrearHabilidad />;
       default:
         return null;
     }

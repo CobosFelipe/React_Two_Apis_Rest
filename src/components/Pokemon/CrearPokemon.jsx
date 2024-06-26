@@ -51,7 +51,7 @@ export const CrearPokemon = ({ abilities, characters }) => {
   };
 
   return (
-    <form onSubmit={manejarSubmit}>
+    <form className="formulario-pokemon" onSubmit={manejarSubmit}>
       <h2 className="titulo-formulario mt-1">CREANDO POKEMON</h2>
       <div className="mb-2">
         <label htmlFor="idPokemon" className="form-label">Id Pokemon</label>
