@@ -3,6 +3,7 @@ import "/src/styles/ApiRickAndMorty.css";
 import { RickCard } from "./RickCard";
 import { EpisodesCard } from "./EpisodesCard";
 import { CrearPersonaje } from "./CrearPersonaje";
+import { CrearEpisodio } from "./CrearEpisodio";
 
 export const ApiRickAndMorty = () => {
   const [show, setShow] = useState("");
@@ -17,7 +18,7 @@ export const ApiRickAndMorty = () => {
       case "episodios":
         return <EpisodesCard />;
       case "crear_episodio":
-        return "<CrearHabilidad />";
+        return <CrearEpisodio />;
       default:
         return null;
     }
