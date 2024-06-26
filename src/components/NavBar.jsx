@@ -11,7 +11,7 @@ export const NavBar = ({ onChange }) => {
           PokemonApi
           <i className="fa-solid fa-arrow-left arrow_left"></i>
         </a>
-            SELECIONA UNA API
+          <h2><i className="fa-solid fa-angle-left arrow_left"></i> SELECIONA UNA API <i className="fa-solid fa-angle-right arrow_right"></i></h2>
         <a className="navbar-brand d-flex align-items-center" onClick={()=>onChange('rick')}>
           <i className="fa-solid fa-arrow-right arrow_right"></i>
           <img src="/src/img/Morty_Sticker.png" alt="Logo" width="35" height="40" className="d-inline-block align-text-top me-2"/>
