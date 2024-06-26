@@ -113,7 +113,7 @@ export const CrearPokemon = ({ abilities, characters }) => {
           value={formData.abilities}
           onChange={manejarChange}
         >
-          <option value="">Seleccione una habilidad</option>
+          <option value="" disabled>Seleccione una habilidad</option>
           {abilities.map((p, index) => (
             <option key={index} value={p.id_ability}>
               {p.id_ability}. {p.name}
@@ -129,7 +129,7 @@ export const CrearPokemon = ({ abilities, characters }) => {
           value={formData.id_character}
           onChange={manejarChange}
         >
-          <option value="">Seleccione un personaje</option>
+          <option value="" disabled>Seleccione un personaje</option>
           {characters.map((p, index) => (
             <option key={index} value={p.id_character}>
               {p.id_character}. {p.name_character}

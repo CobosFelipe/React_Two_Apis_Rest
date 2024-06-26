@@ -2,9 +2,27 @@ import React, { useState } from "react";
 import "/src/styles/ApiRickAndMorty.css";
 import { RickCard } from "./RickCard";
 import { EpisodesCard } from "./EpisodesCard";
+import { CrearPersonaje } from "./CrearPersonaje";
 
 export const ApiRickAndMorty = () => {
   const [show, setShow] = useState("");
+
+  // Validacion del componente a renderizar
+  const renderComponent = () => {
+    switch (show) {
+      case "personajes":
+        return <RickCard />;
+      case "crear_personaje":
+        return <CrearPersonaje />;
+      case "episodios":
+        return <EpisodesCard />;
+      case "crear_episodio":
+        return "<CrearHabilidad />";
+      default:
+        return null;
+    }
+  };
+
   return (
     <>
       <div className="container">
@@ -16,7 +34,7 @@ export const ApiRickAndMorty = () => {
               <a onClick={()=>setShow("personajes")} className="btn btn-primary">
                 VER PERSONAJES
               </a>
-              <a onClick={()=>setShow("")} className="btn btn-primary">
+              <a onClick={()=>setShow("crear_personaje")} className="btn btn-primary">
                 CREAR PERSONAJE
               </a>
             </div>
@@ -31,14 +49,14 @@ export const ApiRickAndMorty = () => {
               <a onClick={()=>setShow("episodios")} className="btn btn-primary">
                 VER EPISODIOS
               </a>
-              <a onClick={()=>setShow("")} className="btn btn-primary">
+              <a onClick={()=>setShow("crear_episodio")} className="btn btn-primary">
                 CREAR EPISODIO
               </a>
             </div>
           </div>
         </div>
       </div>
-      {show === "personajes" ? <RickCard /> : show === "episodios" ? <EpisodesCard/> : ""}
+      {renderComponent()} 
     </>
   );
 };
