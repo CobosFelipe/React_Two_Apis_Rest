@@ -28,6 +28,7 @@ export const PokemonCard = () => {
           <p>Nombre: {p.pokemon_name}</p>
           <p>Altura: {p.height}m</p>
           <p>Peso: {p.weight}Kg</p>
+          <button id={index+1} className="btn btn-secondary btn-sm mt-2 mb-1">Editar</button>
         </div>
       ))}
     </div>

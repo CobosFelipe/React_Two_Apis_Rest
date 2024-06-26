@@ -1,10 +1,64 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "/src/styles/ApiPokemon.css";
 import { PokemonCard } from "./PokemonCard";
 import { AbilitiesCard } from "./AbilitiesCard";
+import { CrearPokemon } from "./CrearPokemon";
 
 export const ApiPokemon = () => {
   const [show, setShow] = useState("");
+  const [abilities, setAbilities] = useState([]);
+  const [characters, setCharacters] = useState([])
+
+  // Fetch para la lista de personajes
+  useEffect(() => {
+    async function fetchCharacters() {
+      try {
+        const response = await fetch("http://localhost:5000/rym/get");
+        const data = await response.json();
+        const character = data.obj;
+        setCharacters(character);
+        console.log(character);
+      } catch (error) {
+        console.error("Error buscando Personajes:", error);
+      }
+    }
+
+    fetchCharacters();
+  }, []);
+
+  // Fetch para la lista de habilidades
+  useEffect(() => {
+    async function fetchAbilities() {
+      try {
+        const response = await fetch("http://localhost:5000/abi/get");
+        const data = await response.json();
+        const ability = data.obj;
+        setAbilities(ability);
+        console.log(ability);
+      } catch (error) {
+        console.error("Error buscando Habilidades:", error);
+      }
+    }
+
+    fetchAbilities();
+  }, []);
+
+  // Validacion del componente a renderizar
+  const renderComponent = () => {
+    switch (show) {
+      case "pokemon":
+        return <PokemonCard />;
+      case "crear_pokemon":
+        return <CrearPokemon abilities={abilities} characters={characters} />;
+      case "habilidades":
+        return <AbilitiesCard />;
+      case "crear_habilidad":
+        return "habilidad";
+      default:
+        return null;
+    }
+  };
+
   return (
     <>
       <div className="container">
@@ -19,7 +73,7 @@ export const ApiPokemon = () => {
               <a onClick={() => setShow("pokemon")} className="btn btn-primary">
                 VER POKEMON
               </a>
-              <a onClick={() => setShow("habilidades")} className="btn btn-primary">
+              <a onClick={() => setShow("crear_pokemon")} className="btn btn-primary">
                 CREAR POKEMON
               </a>
             </div>
@@ -31,14 +85,14 @@ export const ApiPokemon = () => {
               <a onClick={() => setShow("habilidades")} className="btn btn-primary">
                 VER HABILIDADES
               </a>
-              <a onClick={() => setShow("habilidades")} className="btn btn-primary">
+              <a onClick={() => setShow("crear_habilidad")} className="btn btn-primary">
                 CREAR HABILIDAD
               </a>
             </div>
           </div>
         </div>
       </div>
-      {show === "pokemon" ? <PokemonCard /> : show === "habilidades" ? <AbilitiesCard /> : ""}
+      {renderComponent()}
     </>
   );
 };
